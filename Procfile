@@ -1,0 +1,1 @@
+web: gunicorn botpromokot.wsgi --log-file -

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body class="black">
+	<nav class="mb-1 navbar navbar-expand-lg navbar-dark sticky-top rgba-purple-strong">
+		<a class="navbar-brand" href="{% url 'index' %}">
+			<img src="https://i.ibb.co/hYKq7yW/logo.png" width="50" height="50" alt="">
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+		aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link font-weight-bold h5" href="{% url 'campaigns' %}">
+						<i class="fas fa-store"></i></i> Магазины
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link font-weight-bold h5" href="{% url 'categories' %}">
+						<i class="fas fa-clipboard-list"></i> категории
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>				
+				<li class="nav-item">
+					<a class="nav-link font-weight-bold h5" href="{% url 'free_shipping' %}">
+						<i class="fas fa-shuttle-van"></i> Бесплатная доставка
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link font-weight-bold h5" href="{% url 'gift_to_order' %}">
+						<i class="far fa-laugh-beam"></i> Подарок к заказу
+					</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container black">
+		<div class="text-white text-center m-1">
+			<h1>Промокоды {% block title %}топ рейтинг{% endblock %}</h1>
+		</div>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+		{% block promocod %}
+		{% endblock %}
+		</div>
+		<div class="container">
+			{% if is_paginated %}
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					<li class="page-item {% if not prev_url %}disabled{% endif %}">
+						<a class="page-link" href=" {{ prev_url }} " tabindex="-1" aria-disabled="true">&laquo;</a>
+					</li>
+					{% for n in cupons.paginator.page_range %}
+					{% if cupons.number == n %}
+					<li class="page-item active" aria-current="page">
+						<a class="page-link" href="?page={{ n }}">{{ n }}<span class="sr-only">(current)</span></a>
+					</li>
+					{% elif n > cupons.number|add:-1 and n < cupons.number|add:6 %}
+					<li class="page-item">
+						<a class="page-link" href="?page={{ n }}">{{ n }}</a>
+					</li>
+					{% endif %}
+					{% endfor %}
+					<li class="page-item {% if not next_url %}disabled{% endif %}">
+						<a class="page-link" href=" {{ next_url }} " tabindex="-1" aria-disabled="true">&raquo;</a>
+					</li>
+				</ul>
+			</nav>
+			{% endif %}    
+		</div>
+	</div>
+	<script> var clipboard = new Clipboard('.copy-text');</script>
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
+</body>
+</html>
+

@@ -59,7 +59,7 @@
 		<div class="container">
 			{% if is_paginated %}
 			<nav aria-label="Page navigation example">
-				<ul class="pagination justify-content-center">
+				<ul class="pagination  d-flex flex-wrap  justify-content-center">
 					<li class="page-item {% if not prev_url %}disabled{% endif %}">
 						<a class="page-link" href=" {{ prev_url }} " tabindex="-1" aria-disabled="true">&laquo;</a>
 					</li>
@@ -68,7 +68,7 @@
 					<li class="page-item active" aria-current="page">
 						<a class="page-link" href="?page={{ n }}">{{ n }}<span class="sr-only">(current)</span></a>
 					</li>
-					{% elif n > cupons.number|add:-1 and n < cupons.number|add:6 %}
+					{% elif n > cupons.number|add:-100 and n < cupons.number|add:60 %}
 					<li class="page-item">
 						<a class="page-link" href="?page={{ n }}">{{ n }}</a>
 					</li>

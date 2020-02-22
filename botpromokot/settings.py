@@ -110,7 +110,8 @@ USE_TZ = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 
-DATABASES['default'] = dj_database_url.config(default='postgres://vlwkjbupffvjgu:ffcb851826641b1a707bc21dc7fca1aa592af46ecc66493e454d583b6c695d32@ec2-50-17-178-87.compute-1.amazonaws.com:5432/de7npv6bm2g1bk')
+DATABASES['default'] = dj_database_url.config(default='postgres://znyqpxwbqbpbxx:87861cb67a3ec752764ae86789367dddde5626deede3999b029d97d8656850b9@ec2-35-168-54-239.compute-1.amazonaws.com:5432/d40j8c21n2v2u4
+')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

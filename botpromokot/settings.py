@@ -8,13 +8,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
-#SECRET_KEY = 'wi)x@%yssx_dzs)n)er3^%tfyhtf41d-ixyrzs=f=7#px#4_ww'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['botkot.herokuapp.com', '127.0.0.1', '46.44.38.238', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
+ALLOWED_HOSTS = ['botkot.herokuapp.com', '46.44.38.238', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
 
 
 # Application definition
@@ -28,9 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
-SITE_ID = 1
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -113,19 +110,17 @@ USE_TZ = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 
-#db_from_env = dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
+DATABASES['default'] = dj_database_url.config(default='postgres://znyqpxwbqbpbxx:87861cb67a3ec752764ae86789367dddde5626deede3999b029d97d8656850b9@ec2-35-168-54-239.compute-1.amazonaws.com:5432/d40j8c21n2v2u4')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/

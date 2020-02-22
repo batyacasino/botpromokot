@@ -31,21 +31,28 @@ class CategoriesDetail(CategoriesDetailMixin, View):
 	template = 'categories_detail'
 
 
-class Campaigns(ObjMixin, View):
-	
-	model = Campaigns
-	template = 'campaigns'
+def del_and_reload_db(request):
+	del_db()
+	Order_discount = Types.objects.get(id=2)
+	cupons = Cupons.objects.filter(types=Order_discount)
+	return render(request, 'botpromokotapp/index.html', {
+															"cupons": cupons,
+														})
 
-
-class Categories(ObjMixin, View):
-	model = Categories
-	template = 'categories'
-
+def campaigns(request):
+	del_db()
+	campaigns = Campaigns.objects.all()
+	return render(request, 'botpromokotapp/campaigns.html', {
+																"campaigns": campaigns,
+																})
+def categories(request):
+	categories = Categories.objects.all()
+	return render(request, 'botpromokotapp/categories.html', {
+																"categories": categories
+																})
 
 def sitemap(request):
-    return render(request,
-                  'botpromokotapp/sitemap.xml')
+    return render(request, 'botpromokotapp/sitemap.xml')
 
 def robots(request):
-    return render(request,
-                  'botpromokotapp/robots.txt')
+    return render(request, 'botpromokotapp/robots.txt')

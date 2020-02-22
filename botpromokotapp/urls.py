@@ -14,6 +14,3 @@ urlpatterns = [
 	path('robots.txt/', robots, name='robots'),
 	path('sitemap.xml/', sitemap, name='sitemap'),
 ]
-
-
-

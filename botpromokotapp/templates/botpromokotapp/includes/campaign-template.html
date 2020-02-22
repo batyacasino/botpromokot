@@ -1,6 +1,6 @@
 {% for campaign in campaigns %}
 	<div class="list-group">
-		<a href="{% url 'campaigns_detail' campaign.id %}" class="text-dark text-monospace font-weight-bolder h5 h-100 text-center text-center list-group-item list-group-item-action secondary-color m-1">
+		<a href="{% url 'campaigns_detail' campaign.id %}" class="text-white text-center list-group-item list-group-item-action rgba-purple-strong m-1">
 			{{ campaign.name|truncatechars:20 }}
 		</a>
 	</div>

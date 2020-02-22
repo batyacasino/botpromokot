@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 	<!-- Font Awesome -->
@@ -9,13 +10,14 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Material Design Bootstrap -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class="black">
-	<nav class="mb-1 navbar navbar-expand-lg navbar-dark sticky-top rgba-purple-strong">
+	<nav class="mb-1 navbar navbar-expand-lg navbar-dark sticky-top  rgba-purple-strong">
 		<a class="navbar-brand" href="{% url 'index' %}">
-			<img src="https://i.ibb.co/hYKq7yW/logo.png" width="50" height="50" alt="">
+			<img src="{% static 'image/logo.png' %}" width="50" height="50" alt="">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 		aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,17 +51,17 @@
 		</div>
 	</nav>
 	<div class="container black">
-		<div class="text-white text-center m-1">
+		<div class="text-white text-center text-monospace m-1">
 			<h1>Промокоды {% block title %}топ рейтинг{% endblock %}</h1>
 		</div>
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-		{% block promocod %}
-		{% endblock %}
+			{% block promocod %}
+			{% endblock %}
 		</div>
 		<div class="container">
 			{% if is_paginated %}
 			<nav aria-label="Page navigation example">
-				<ul class="pagination  d-flex flex-wrap  justify-content-center">
+				<ul class="pagination  d-flex flex-wrap justify-content-center">
 					<li class="page-item {% if not prev_url %}disabled{% endif %}">
 						<a class="page-link" href=" {{ prev_url }} " tabindex="-1" aria-disabled="true">&laquo;</a>
 					</li>
@@ -68,7 +70,7 @@
 					<li class="page-item active" aria-current="page">
 						<a class="page-link" href="?page={{ n }}">{{ n }}<span class="sr-only">(current)</span></a>
 					</li>
-					{% elif n > cupons.number|add:-100 and n < cupons.number|add:60 %}
+					{% elif n > cupons.number|add:-10 and n < cupons.number|add:60 %}
 					<li class="page-item">
 						<a class="page-link" href="?page={{ n }}">{{ n }}</a>
 					</li>
@@ -82,7 +84,10 @@
 			{% endif %}    
 		</div>
 	</div>
-	<script> var clipboard = new Clipboard('.copy-text');</script>
+	<script>
+		var clipboard = new Clipboard('.copy-text');
+	</script>
+	<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
 	<!-- JQuery -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Bootstrap tooltips -->
@@ -91,6 +96,6 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
+	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
-

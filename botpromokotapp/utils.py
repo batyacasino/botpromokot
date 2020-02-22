@@ -44,6 +44,7 @@ class CategoriesDetailMixin:
 	def get(self, request, pk):
 		obj = get_object_or_404(self.model, id=pk)
 		cupons = Cupons.objects.filter(categories=obj)
+
 		pag = paginate(cupons, request)
 		return render(request, f'botpromokotapp/{self.template}.html', {
 																			"cupons": pag[0],
@@ -53,25 +54,20 @@ class CategoriesDetailMixin:
 																			"title": obj.name
 																			})
 
+
 class TypesMixin:
 	types = None
 	template = None
 
 	def get(self, request):
 		cupons = Cupons.objects.filter(types=self.types)
+
 		pag = paginate(cupons, request)
+
+
 		return render(request, f'botpromokotapp/{self.template}.html', {
 																			"cupons": pag[0],
 																			"is_paginated": pag[1],
 																			"next_url": pag[2],
 																			"prev_url": pag[3],
-																			})	
-class ObjMixin:
-	model = None
-	template = None
-
-	def get(self, request):
-		
-
-		obj = self.model.objects.all()
-		return render(request, f'botpromokotapp/{self.template}.html', {self.model.__name__.lower(): obj})
+																			})

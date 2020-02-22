@@ -42,3 +42,10 @@ class Categories(ObjMixin, View):
 	template = 'categories'
 
 
+def sitemap(request):
+    return render(request,
+                  'botpromokotapp/sitemap.xml')
+
+def robots(request):
+    return render(request,
+                  'botpromokotapp/robots.txt')

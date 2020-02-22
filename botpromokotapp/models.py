@@ -55,3 +55,7 @@ class Cupons(models.Model):
 	
 	def __str__(self):
 		return self.campaigns
+
+class Person(models.Model):
+	first_name = models.CharField(max_length=200)
+	last_name = models.CharField(max_length=200)

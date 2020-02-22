@@ -20,7 +20,7 @@ ALLOWED_HOSTS = ['botkot.herokuapp.com', '127.0.0.1', '46.44.38.238', 'www.botpr
 # Application definition
 
 INSTALLED_APPS = [
-    'botpromokotapp.apps.BotpromokotappConfig',
+    'botpromokotapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -113,8 +113,8 @@ USE_TZ = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 
-#db_from_env = dj_database_url.config(conn_max_age=500)
-#DATABASES['default'].update(db_from_env)
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

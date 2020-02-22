@@ -14,7 +14,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['botkot.herokuapp.com', '80.77.162.245', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
+ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -110,17 +110,15 @@ USE_TZ = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 
-DATABASES['default'] = dj_database_url.config(default='postgres://znyqpxwbqbpbxx:87861cb67a3ec752764ae86789367dddde5626deede3999b029d97d8656850b9@ec2-35-168-54-239.compute-1.amazonaws.com:5432/d40j8c21n2v2u4')
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
-
-# The absolute path to the directory where collectstatic will collect static files for deployment.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# The URL to use when referring to static files (where they will be served from)
 STATIC_URL = '/static/'
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+AUTH_USER_MODEL = 'authentication.User'
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)

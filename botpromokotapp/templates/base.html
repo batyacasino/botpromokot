@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
 <head>
 	<!-- Font Awesome -->
@@ -10,14 +9,12 @@
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Material Design Bootstrap -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
-	<
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body class="black">
 	<nav class="mb-1 navbar navbar-expand-lg navbar-dark sticky-top  rgba-purple-strong">
 		<a class="navbar-brand" href="{% url 'index' %}">
-			<img src="{% static 'image/logo.png' %}" width="50" height="50" alt="">
+			<img src="https://i.ibb.co/hYKq7yW/logo.png" width="50" height="50" alt="">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 		aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,6 +93,5 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<!-- MDB core JavaScript -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
-	<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

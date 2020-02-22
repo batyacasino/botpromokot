@@ -14,7 +14,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['botkot.herokuapp.com', '46.44.38.238', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
+ALLOWED_HOSTS = ['botkot.herokuapp.com', '80.77.162.245', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
 
 
 # Application definition

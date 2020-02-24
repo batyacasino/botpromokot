@@ -1,10 +1,5 @@
 from django.urls import path
 from .views import *
-# urls.py
-from .feeds import TurboFeed
-
-feed = TurboFeed()
-
 
 urlpatterns = [
 	path('', Index.as_view(), name='index'),

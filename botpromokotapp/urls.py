@@ -7,7 +7,7 @@ feed = TurboFeed()
 
 
 urlpatterns = [
-	path('index/', Index.as_view(), name='index'),
+	path('', Index.as_view(), name='index'),
 	path('del_and_reload_db/', del_and_reload_db, name='del_and_reload_db'),
 	path('campaigns/', campaigns, name='campaigns'),
 	path('campaigns/t<int:pk>/', CampaignDetail.as_view(), name='campaigns_detail'),

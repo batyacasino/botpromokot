@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-{% block promocod %}
-{% for cupon in cupons.object_list %}			
+{% block promocod %}		
 {% include 'botpromokotapp/includes/promokod_card_template.html' %}			
 {% endfor %}		
 {% endblock %}

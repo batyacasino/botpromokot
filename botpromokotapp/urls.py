@@ -17,5 +17,4 @@ urlpatterns = [
 	path('gift_to_order/', GiftToOrder.as_view(), name='gift_to_order'),
 	path('robots.txt/', robots, name='robots'),
 	path('sitemap.xml/', sitemap, name='sitemap'),
-	path('feeds/turbo/', feed),
 ]

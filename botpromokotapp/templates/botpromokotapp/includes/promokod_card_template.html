@@ -1,38 +1,32 @@
 {% for cupon in cupons.object_list %}	
-	<div class="col mb-1">
-		<div class="card h-100">				
-			<img src="{{ cupon.image }}" class="card-img-top" alt="...">
-			<div class="card-body elegant-color-dark">
-				<h4 class="card-title text-white text-monospace text-center">{{ cupon.discount }}</h5>
-		       <a href="#" class="btn rgba-purple-strong" data-toggle="modal" data-target="#example{{ cupon.id }}"><h5 class="text-dark text-monospace font-weight-bolder h5">ПОСМОТРЕТЬ ПРОМОКОД</h5></a>
-				<h5 class="text-white text-monospace text-center">{{ cupon.short_name }}</h5>					
-				<div class="modal fade" id="example{{ cupon.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered" role="document">
-						<div class="modal-content elegant-color-dark">
-							<div class="modal-body">
-								<div class="text-center">
-									<div id="copytext{{ cupon.id }}" class="d-inline">
-										<h4 class="card elegant-color-dark text-white text-monospace text-center m-1">{{ cupon.promocode }}</h4>
-									</div>
-									<div href="{{ cupon.goto_link }}" class="d-inline text-white pull-right copy-text m-2" data-clipboard-target="#copytext{{ cupon.id }}">
-										<button href="{{ cupon.goto_link }}" type="button" class="btn rgba-purple-strong copy-text" data-clipboard-target="#copytext{{ cupon.id }}">
-											<a href="{{ cupon.goto_link }}" class="copy-text" data-clipboard-target="#copytext{{ cupon.id }}">
-												<h6 href="{{ cupon.goto_link }}" class="copy-text text-dark copy-text text-monospace font-weight-bolder" data-clipboard-target="#copytext{{ cupon.id }}">скопировать промокод и перейти на сайт</h6>
-											</a>
-										</button>
-									</div>
-									<div class="text-center">
-										<h5 class="text-white text-monospace text-center font-weight-normal">{{ cupon.description }}</h5>
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn stylish-color-dark text-white font-weight-bolder" data-dismiss="modal">Закрыть</button>
-							</div>
+<div class="col mb-1">
+	<div class="card h-100">				
+		<img src="{{ cupon.image }}" class="card-img-top" alt="...">
+		<div class="card-body elegant-color-dark">
+			<h4 class="card-title text-white text-monospace text-center">{{ cupon.discount }}</h4>
+			<a href="#" class="btn rgba-purple-strong" data-toggle="modal" data-target="#example{{ cupon.id }}">
+			<h5 class="text-dark text-monospace font-weight-bolder">ПОСМОТРЕТЬ ПРОМОКОД</h5>
+			</a>
+			<h5 class="text-white text-monospace text-center">{{ cupon.short_name }}</h5>
+		</div>					
+		<div class="modal fade" id="example{{ cupon.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content elegant-color-dark">
+					<div class="modal-body">
+						<h4 class="elegant-color-dark text-white text-monospace text-center m-1 cb-target-{{ cupon.id }}">{{ cupon.promocode }}</h4>
+						<a href="{{ cupon.goto_link }}" type="button" class="btn js-copy-btn text-center rgba-purple-strong" data-clipboard-target=".cb-target-{{ cupon.id }}">
+							<h6 class="text-dark text-center text-monospace font-weight-bolder">скопировать промокод и перейти на сайт</h6>									
+						</a>
+						<div class="text-center">
+							<h5 class="text-white text-monospace font-weight-normal">{{ cupon.description }}</h5>
 						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn stylish-color-dark text-white font-weight-bolder" data-dismiss="modal">Закрыть</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 {% endfor %}

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
+{% block protitle %}{{ title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block promocod %}		
-{% include 'botpromokotapp/includes/promokod_card_template.html' %}			
-{% endfor %}		
+{% include 'botpromokotapp/includes/promokod_card_template.html' %}		
 {% endblock %}

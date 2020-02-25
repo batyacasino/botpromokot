@@ -10,11 +10,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['botkot.herokuapp.com', '46.44.38.238', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
+ALLOWED_HOSTS = ['botkot.herokuapp.com', '127.0.0.1', 'www.botpromokot.online', 'www.botpromokot.ru', 'botpromokot.ru', 'botpromokot.online']
+
 
 
 # Application definition
@@ -110,8 +109,8 @@ USE_TZ = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
 
-DATABASES['default'] = dj_database_url.config(default='postgres://vlwkjbupffvjgu:ffcb851826641b1a707bc21dc7fca1aa592af46ecc66493e454d583b6c695d32@ec2-50-17-178-87.compute-1.amazonaws.com:5432/de7npv6bm2g1bk')
-
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 

@@ -5,17 +5,17 @@
 		<div class="card-body elegant-color-dark">
 			<h4 class="card-title text-white text-monospace text-center">{{ cupon.discount }}</h4>
 			<a href="#" class="btn rgba-purple-strong" data-toggle="modal" data-target="#example{{ cupon.id }}">
-			<h5 class="text-dark text-monospace font-weight-bolder">ПОСМОТРЕТЬ ПРОМОКОД</h5>
+			<h5 class="text-white text-monospace font-weight-bolder">ПОСМОТРЕТЬ ПРОМОКОД</h5>
 			</a>
 			<h5 class="text-white text-monospace text-center">{{ cupon.short_name }}</h5>
 		</div>					
 		<div class="modal fade" id="example{{ cupon.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content elegant-color-dark">
-					<div class="modal-body">
+					<div class="modal-body text-center">
 						<h4 class="elegant-color-dark text-white text-monospace text-center m-1 cb-target-{{ cupon.id }}">{{ cupon.promocode }}</h4>
 						<a href="{{ cupon.goto_link }}" type="button" class="btn js-copy-btn text-center rgba-purple-strong" data-clipboard-target=".cb-target-{{ cupon.id }}">
-							<h6 class="text-dark text-center text-monospace font-weight-bolder">скопировать промокод и перейти на сайт</h6>									
+							<h6 class="text-white text-center text-monospace font-weight-bolder">скопировать промокод и перейти на сайт</h6>									
 						</a>
 						<div class="text-center">
 							<h5 class="text-white text-monospace font-weight-normal">{{ cupon.description }}</h5>

@@ -1,7 +1,7 @@
 {% for campaign in campaigns %}
 	<div class="list-group">
 		<a href="{% url 'campaign_detail' campaign.id %}" class="btn list-group-item rgba-purple-strong text-center h-100 m-1">
-			<p class="text-white text-center text-monospace font-weight-bolder h6">{{ campaign.name|truncatechars:20 }}</p>
+			<p class="text-white text-center text-monospace font-weight-bolder h5">{{ campaign.name|truncatechars:20 }}</p>
 		</a>
 	</div>
 {% endfor %}

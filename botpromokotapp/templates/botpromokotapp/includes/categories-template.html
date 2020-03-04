@@ -1,7 +1,7 @@
 {% for categori in categories %}
 	<div class="list-group">
 		<a href="{% url 'categories_detail' categori.id %}" class="btn list-group-item rgba-purple-strong text-center h-100 m-1">
-			<p class="text-white text-center text-monospace font-weight-bolder h6">{{ categori.name }}</p>
+			<p class="text-white text-center text-monospace font-weight-bolder h5">{{ categori.name }}</p>
 		</a>
 	</div>
 {% endfor %}
